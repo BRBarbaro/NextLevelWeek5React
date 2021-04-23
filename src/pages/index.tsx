@@ -3,8 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import { useContext } from 'react';
 import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
+import { PlayerContext } from '../contexts/PlayerContext';
 import styles from './home.module.scss';
 
 type Episode = {
@@ -15,6 +17,7 @@ type Episode = {
   thumbnail: string;
   duration: number;
   durationAsString: string;
+  url: string;
 }
 
 type HomeProps = {
@@ -29,6 +32,8 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   //   fetch('http://localhost:3333/episodes')
   //     .then(response => response.json())
   // }, [])
+  
+  const { play } = useContext(PlayerContext)
 
   return (
     <div className={styles.homepage}>
@@ -50,7 +55,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                     <span>{ep.durationAsString}</span>
                   </div>
 
-                  <button>
+                  <button type="button" onClick={() => play(ep)}>
                     <img src="/play-green.svg" alt="Ouvir episódio"/>
                   </button>
                 </li>
@@ -91,7 +96,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   <td style ={{ width : 100}}>{ep.publishedAt}</td>
                   <td>{ep.durationAsString}</td>
                   <td>
-                    <button>
+                    <button type="button" onClick={() => play(ep)}>
                       <img src="/play-green.svg" alt="Ouvir episódio"/>
                     </button>
                   </td>
@@ -128,6 +133,7 @@ export const getStaticProps: GetStaticProps = async () => {
       thumbnail: ep.thumbnail,
       duration: Number(ep.file.duration),
       durationAsString: convertDurationToTimeString(Number(ep.file.duration)),
+      url: ep.file.url
     }
   })
 
