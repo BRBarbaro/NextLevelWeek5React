@@ -23,7 +23,7 @@
 }
 
 .theme-dark {
-  transition: 0.5s linear;
+  transition: background 0.5s linear;
   --color-background:var(--gray-500);
   --color-background-accent:var(--gray-800);
   --color-border:var(--gray-800);
@@ -34,7 +34,7 @@
 }
 
 .theme-light {
-  transition: 0.5s linear;
+  transition: background 0.5s linear;
   --color-background:var(--gray-50);
   --color-background-accent:var(--white);
   --color-border:var(--gray-100);
