@@ -32,6 +32,7 @@
     gap: 1.5rem;
 
     li {
+      transition: 0.5s linear;
       background: var(--color-background-accent);
       border: 1px solid var(--color-border);
       padding: 1.25rem;
@@ -99,6 +100,7 @@
       }
 
       button {
+        transition: 0.5s linear;
         position: absolute;
         right: 2rem;
         bottom: 2rem;
@@ -109,13 +111,13 @@
         border-radius: 0.675rem;
         font-size: 0;
 
-        transition: filter 0.2s;
         img {
           width: 1.5rem;
           height: 1.5rem;
         }
 
         &:hover {
+          transition: filter 0.2s;
           filter: brightness(0.95);
         }
       }
@@ -166,6 +168,7 @@
       }
 
       button {
+        transition: 0.5s linear;
         width: 2rem;
         height: 2rem;
         background: var(--color-button-bg);
@@ -173,13 +176,13 @@
         border-radius: 0.5rem;
         font-size: 0;
 
-        transition: filter 0.2s;
         img {
           width: 1.25rem;
           height: 1.25rem;
         }
 
         &:hover {
+          transition: filter 0.2s;
           filter: brightness(0.95);
         }
       }
