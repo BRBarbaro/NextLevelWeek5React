@@ -22,6 +22,24 @@
 
 }
 
+.theme-dark {
+  --color-background:var(--gray-500);
+  --color-background-accent:var(--gray-800);
+  --color-border:var(--gray-800);
+  --color-text:var(--gray-50);
+  --color-text-bold:var(--gray-100);
+  --color-button-bg:var(--gray-500);
+}
+
+.theme-light {
+  --color-background:var(--gray-50);
+  --color-background-accent:var(--white);
+  --color-border:var(--gray-100);
+  --color-text:var(--gray-500);
+  --color-text-bold:var(--gray-800);
+  --color-button-bg:var(--white);
+}
+
 @media (max-width: 1080px) {
   html {
     font-size: 93.75%;
@@ -41,7 +59,7 @@
 }
 
 body {
-  background: var(--gray-50);
+  background: var(--color-background);
 }
 
 body, input, textarea, button {
@@ -52,7 +70,11 @@ body, input, textarea, button {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   font-family: Lexend, sans-serif;
-  color: var(--gray-800)
+  color: var(--color-text-bold)
+}
+
+span, p {
+  color: var(--color-text);
 }
 
 h1 {
@@ -66,3 +88,4 @@ h2 {
 button {
   cursor: pointer;
 }
+
